@@ -100,7 +100,7 @@ Make a simple API to make a profile for users with Articles in multi-languages.
 - Use scopes on ORM.
 - Unit tests coverage.
 
-## The Evaluation:
+## The Evaluation
 ###### Task will be evaluated based on:
 - Code quality.
 - Application performance in reading large amount of records.
