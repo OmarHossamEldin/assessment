@@ -23,7 +23,7 @@ $app = new Laravel\Lumen\Application(
     dirname(__DIR__)
 );
 
-// $app->withFacades();
+$app->withFacades();
 
 $app->withEloquent();
 
@@ -80,6 +80,18 @@ $app->configure('app');
 //     'auth' => App\Http\Middleware\Authenticate::class,
 // ]);
 
+$app->routeMiddleware([
+    'Cors' => App\Http\Middleware\Cors::class,
+]);
+
+$app->routeMiddleware([
+    'ForceJsonResponse' => App\Http\Middleware\ForceJsonResponse::class,
+]);
+
+$app->routeMiddleware([
+    'Localization' => App\Http\Middleware\Localization::class,
+]);
+
 /*
 |--------------------------------------------------------------------------
 | Register Service Providers
@@ -111,7 +123,9 @@ $app->register(Flipbox\LumenGenerator\LumenGeneratorServiceProvider::class);
 $app->router->group([
     'namespace' => 'App\Http\Controllers',
 ], function ($router) {
-    require __DIR__.'/../routes/web.php';
+    require __DIR__.'/../routes/api.php';
 });
+
+
 
 return $app;

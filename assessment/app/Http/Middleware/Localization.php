@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use App\Helpers\Localization as locale;
-use Lang;
+use Illuminate\Support\Facades\Lang;
 
 class Localization
 {
