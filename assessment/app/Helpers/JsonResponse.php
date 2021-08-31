@@ -18,7 +18,7 @@ class JsonResponse
         return response()->json([
             'message' => $message,
             'errors' => $errors,
-            'data' => $data
+            $data
         ], $statusCode);
     }
 }
