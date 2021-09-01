@@ -17,4 +17,18 @@ $router->group(['prefix' => '/api', 'middleware' => ['Cors', 'ForceJsonResponse'
     $router->get('/', function () use ($router) {
         return $router->app->version();
     });
+    //guest
+    $router->post('login', 'App\Http\Controllers\Auth\LoginController@login');
+
+    $router->post('register', 'App\Http\Controllers\Auth\RegisterController@register');
+
+    //Authenticated 
+    $router->group(['middleware' => ['auth:api']], function () use ($router){
+
+        $router->post('logout', 'App\Http\Controllers\Auth\LogoutController@logout');
+        $router->get('users', 'App\Http\Controllers\UserController@index');
+        $router->get('users/{user}', 'App\Http\Controllers\UserController@show');
+        $router->put('users/{user}', 'App\Http\Controllers\UserController@update');
+        
+    });
 });
