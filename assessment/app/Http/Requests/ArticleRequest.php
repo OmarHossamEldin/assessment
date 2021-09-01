@@ -4,9 +4,9 @@ namespace App\Http\Requests;
 
 use Anik\Form\FormRequest;
 
-class UserRequest extends FormRequest
+class ArticleRequest extends FormRequest
 {
-     /**
+    /**
      * Determine if the user is authorized to make this request.
      *
      * @return bool
@@ -24,11 +24,8 @@ class UserRequest extends FormRequest
     protected function rules(): array
     {
         return [
-            'name' => 'required|json',
-            'email' => "required|email|unique:users,email,{$this->user?->id}",
-            'phone' => "required|numeric|unique:users,phone,{$this->user?->id}",
-            'password' => 'required|min:8|confirmed'
+            'title' => 'required|json',
+            'content' => 'required|json',
         ];
     }
-
 }

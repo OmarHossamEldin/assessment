@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Repositories\AuthRepository;
 use App\Helpers\JsonResponse;
-use Lang;
+use Illuminate\Support\Facades\Lang;
 
 class LogoutController extends Controller
 {

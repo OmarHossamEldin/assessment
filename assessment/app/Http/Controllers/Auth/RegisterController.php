@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Auth;
+namespace App\Http\Controllers\Auth;
 
 use App\Http\Requests\Auth\RegisterRequest;
 use App\Repositories\UserRepository;
 use App\Http\Controllers\Controller;
 use App\Helpers\JsonResponse;
-use Lang;
+use Illuminate\Support\Facades\Lang;
 
 class RegisterController extends Controller
 {

@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
 use App\Helpers\JsonResponse;
 use App\Repositories\AuthRepository;
-use Lang;
+use Illuminate\Support\Facades\Lang;
 
 class LoginController extends Controller
 {

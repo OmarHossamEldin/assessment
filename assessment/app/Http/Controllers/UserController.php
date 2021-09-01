@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\UserRequest;
 use App\Repositories\UserRepository;
+use Illuminate\Support\Facades\Lang;
 use App\Helpers\JsonResponse;
 use App\Models\User;
-use Lang;
 
 class UserController extends Controller
 {
@@ -19,19 +19,6 @@ class UserController extends Controller
     {
         $users = $userRepository->list();
         return JsonResponse::response(data: ['users' => $users], statusCode: 200);
-    }
-
-    /**
-     *  create user
-     * 
-     * @param UserRequest $request
-     * @param UserRepository $userRepository
-     * @return JsonResponse
-     */
-    public function store(UserRequest $request, UserRepository $userRepository)
-    {
-        $user = $userRepository->create($request->validated());
-        return JsonResponse::response(message: Lang::get('db.success'), data: ['user' => $user], statusCode: 201);
     }
 
     /**

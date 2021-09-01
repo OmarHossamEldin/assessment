@@ -14,7 +14,7 @@ class LoginRequest extends FormRequest
      */
     protected function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,26 +23,6 @@ class LoginRequest extends FormRequest
      * @return array
      */
     protected function rules(): array
-    {
-        return [
-            //
-        ];
-    }
-    /**
-     * Determine if the user is authorized to make this request.
-     *
-     * @return bool
-     */
-    public function authorize()
-    {
-        return true;
-    }
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array
-     */
-    public function rules()
     {
         return [
             'email'=>'required|email',

@@ -18,17 +18,25 @@ $router->group(['prefix' => '/api', 'middleware' => ['Cors', 'ForceJsonResponse'
         return $router->app->version();
     });
     //guest
-    $router->post('login', 'App\Http\Controllers\Auth\LoginController@login');
+    $router->post('login', 'Auth\LoginController@login');
 
-    $router->post('register', 'App\Http\Controllers\Auth\RegisterController@register');
+    $router->post('register', 'Auth\RegisterController@register');
 
     //Authenticated 
     $router->group(['middleware' => ['auth:api']], function () use ($router){
 
-        $router->post('logout', 'App\Http\Controllers\Auth\LogoutController@logout');
-        $router->get('users', 'App\Http\Controllers\UserController@index');
-        $router->get('users/{user}', 'App\Http\Controllers\UserController@show');
-        $router->put('users/{user}', 'App\Http\Controllers\UserController@update');
+        $router->post('logout', 'Auth\LogoutController@logout');
+
+        $router->get('users', 'UserController@index');
+        $router->get('users/{user}', 'UserController@show');
+        $router->put('users/{user}', 'UserController@update');
+        $router->delete('users/{user}', 'UserController@destroy');
+
+        $router->get('articles', 'UserController@index');
+        $router->post('articles', 'UserController@store');
+        $router->get('articles/{user}', 'UserController@show');
+        $router->put('articles/{user}', 'UserController@update');
+        $router->delete('articles/{user}', 'UserController@destroy');
         
     });
 });
