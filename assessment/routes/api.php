@@ -13,7 +13,7 @@
 |
 */
 
-$router->group(['perfix' => 'api', 'middleware' => ['Cors', 'ForceJsonResponse', 'Localization']], function () use ($router) {
+$router->group(['prefix' => '/api', 'middleware' => ['Cors', 'ForceJsonResponse', 'Localization']], function () use ($router) {
     $router->get('/', function () use ($router) {
         return $router->app->version();
     });
