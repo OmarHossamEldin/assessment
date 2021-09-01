@@ -26,6 +26,7 @@ class UserRepository implements Crud
      */
     public function create(array $validatedData): object
     {
+        //$validatedData['name'] = json_encode($validatedData);
         $user = User::create($validatedData);
         return $user;
     }
@@ -39,6 +40,7 @@ class UserRepository implements Crud
      */
     public function update(object $user, array $validatedData): object
     {
+        $validatedData['name'] = json_encode($validatedData);
         $user->update($validatedData);
         return $user;
     }

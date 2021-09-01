@@ -23,7 +23,7 @@ $router->group(['prefix' => '/api', 'middleware' => ['Cors', 'ForceJsonResponse'
     $router->post('register', 'Auth\RegisterController@register');
 
     //Authenticated 
-    $router->group(['middleware' => ['auth:api']], function () use ($router){
+    $router->group(['middleware' => ['auth']], function () use ($router){
 
         $router->post('logout', 'Auth\LogoutController@logout');
 
@@ -32,11 +32,11 @@ $router->group(['prefix' => '/api', 'middleware' => ['Cors', 'ForceJsonResponse'
         $router->put('users/{user}', 'UserController@update');
         $router->delete('users/{user}', 'UserController@destroy');
 
-        $router->get('articles', 'UserController@index');
-        $router->post('articles', 'UserController@store');
-        $router->get('articles/{user}', 'UserController@show');
-        $router->put('articles/{user}', 'UserController@update');
-        $router->delete('articles/{user}', 'UserController@destroy');
+        $router->get('articles', 'ArticleController@index');
+        $router->post('articles', 'ArticleController@store');
+        $router->get('articles/{article}', 'ArticleController@show');
+        $router->put('articles/{article}', 'ArticleController@update');
+        $router->delete('articles/{article}', 'ArticleController@destroy');
         
     });
 });

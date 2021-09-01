@@ -24,7 +24,7 @@ class UserRequest extends FormRequest
     protected function rules(): array
     {
         return [
-            'name' => 'required|json',
+            'name' => 'required|array',
             'email' => "required|email|unique:users,email,{$this->user?->id}",
             'phone' => "required|numeric|unique:users,phone,{$this->user?->id}",
             'password' => 'required|min:8|confirmed'
